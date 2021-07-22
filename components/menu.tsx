@@ -1,5 +1,5 @@
 import React, { FC, useState } from "react";
-import { generateTypes } from "../lib/generateTypes";
+import { checkGenerateTypes, generateTypes } from "../lib/generateTypes";
 import {
 	Formik,
 	FormikHelpers,
@@ -22,8 +22,7 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 	const initialValues: generateTypes = { ...filter };
 	
 	const updateData = (data: generateTypes) => {
-		setFilter(data);
-		// console.log(data);
+		if (checkGenerateTypes(data)) setFilter(data);
 	}
 	
 	return (
@@ -63,6 +62,13 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 					</div>
 
 					<div className="menu-item">
+						<label htmlFor="holeDiameter">
+						Hole diameter
+							<Field type="number" min="0.1" max="10" step="0.1" name="holeDiameter" />
+						</label><br/>
+					</div>
+
+					<div className="menu-item">
 						<label htmlFor="myText">
 						Text
 							<Field type="text" name="myText" />
@@ -93,7 +99,7 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 					<div className="menu-item">
 						<label htmlFor="textOffsetX">
 						Text Offset X
-							<Field type="number" min="-1" max="50" step="1" name="textOffsetX" />
+							<Field type="number" min="-10" max="50" step="1" name="textOffsetX" />
 						</label><br/>
 					</div>
 

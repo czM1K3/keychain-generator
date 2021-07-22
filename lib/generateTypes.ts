@@ -15,7 +15,7 @@ export type generateTypes = {
 export const generateTypesInitial = (): generateTypes => {
 	return {
 		outer: true,
-		width: 70,
+		width: 60,
 		height: 20,
 		depth: 2,
 		holeDiameter: 4,
@@ -26,4 +26,19 @@ export const generateTypesInitial = (): generateTypes => {
 		textOffsetX: 3,
 		textOffsetY: 0
 	}
+}
+
+export const checkGenerateTypes = (input: generateTypes): boolean => {
+	return ![
+		input.width >= 30,
+		input.height >= 10,
+		input.depth > 0,
+		input.holeDiameter > 0,
+		input.myText.length > 0,
+		input.textDepth > 0,
+		input.textWidth > 1,
+		input.textScale > 0,
+		input.textOffsetX >= -10,
+		input.textOffsetY >= -10
+	].includes(false);
 }
