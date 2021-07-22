@@ -28,13 +28,6 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 	
 	return (
 		<div className="menu">
-			{/* <input type="checkbox" id="isInner" name="isInner" onClick={setInnerText}/>
-			<label htmlFor="isInner">Inner text</label> */}
-
-			{/* <div className="slidecontainer">
-				<input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
-			</div> */}
-
 			<Formik
 			initialValues={initialValues}
 			validateOnChange={true}
