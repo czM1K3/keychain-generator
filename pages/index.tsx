@@ -19,7 +19,7 @@ const Index: FC = () => {
   return (
     <>
       <Head>
-        <title>Keyring generator</title>
+        <title>Keychain generator</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 		  <Menu useFilter={[filter,setFilter]} />

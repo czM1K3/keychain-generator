@@ -1,7 +1,7 @@
 import { Renderer } from "jscad-react";
 import React, { FC, useState } from "react";
 import { generateTypes } from "../lib/generateTypes";
-import { keyring } from "../lib/keyring";
+import { keychain } from "../lib/keychain";
 import { useWindowSize } from "../lib/windowSize";
 import { transforms } from "@jscad/modeling";
 
@@ -10,7 +10,7 @@ type myRendererProps = {
 }
 
 const myRenderer: FC<myRendererProps> = ({filter}) => {
-	const [a] = useState([transforms.translateX(-(filter.width / 2), keyring(filter))]);
+	const [a] = useState([transforms.translateX(-(filter.width / 2), keychain(filter))]);
 	const size = useWindowSize();
 	return <Renderer solids={a} height={size.height} width={size.width} />
 }

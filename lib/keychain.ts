@@ -81,7 +81,7 @@ const cuboidWithInnerText = ({width, height, depth, holeDiameter, myText, textDe
 	)
 }
 
-export const keyring = (input: generateTypes) => {
+export const keychain = (input: generateTypes) => {
 	return input.outer ? 
 	cuboidWithOuterText(input):
 	cuboidWithInnerText(input);

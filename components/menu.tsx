@@ -6,7 +6,7 @@ import {
 	Field,
   } from 'formik';
 import { serialize } from "@jscad/stl-serializer";
-import { keyring } from "../lib/keyring";
+import { keychain } from "../lib/keychain";
 
 type MenuProps = {
 	useFilter: [
@@ -25,7 +25,7 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 	}
 
 	const download = (data: generateTypes) => {
-		const rawData = serialize({ binary: true }, keyring(data));
+		const rawData = serialize({ binary: true }, keychain(data));
 		const blob = new Blob(rawData);
 		const blobUrl = URL.createObjectURL(blob);
 		const tempLink = document.createElement("a");
