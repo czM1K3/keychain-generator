@@ -1,6 +1,6 @@
 export type generateTypes = {
-	inner: boolean,
-	widht: number,
+	outer: boolean,
+	width: number,
 	height: number,
 	depth: number,
 	holeDiameter: number,
@@ -14,8 +14,8 @@ export type generateTypes = {
 
 export const generateTypesInitial = (): generateTypes => {
 	return {
-		inner: true,
-		widht: 70,
+		outer: true,
+		width: 70,
 		height: 20,
 		depth: 2,
 		holeDiameter: 4,

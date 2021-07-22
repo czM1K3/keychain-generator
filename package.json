@@ -9,6 +9,7 @@
   "dependencies": {
     "@jscad/modeling": "^2.5.0",
     "@jscad/stl-serializer": "^2.0.6",
+    "formik": "^2.2.9",
     "jscad-react": "^0.1.6",
     "next": "latest",
     "react": "^17.0.2",

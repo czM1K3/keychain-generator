@@ -54,9 +54,9 @@ const baseCuboid = (width, height, depth, holeDiameter) => {
 	);
 }
 
-const cuboidWithOuterText = ({widht, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
+const cuboidWithOuterText = ({width, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
 	return union(
-		baseCuboid(widht, height, depth, holeDiameter),
+		baseCuboid(width, height, depth, holeDiameter),
 		translate(
 			[textOffsetX + 2, textOffsetY - textScale * 10, depth - 1], 
 			scale(
@@ -67,10 +67,10 @@ const cuboidWithOuterText = ({widht, height, depth, holeDiameter, myText, textDe
 	)
 }
 
-const cuboidWithInnerText = ({widht, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
+const cuboidWithInnerText = ({width, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
 	//TODO Don'n make hole with text
 	return subtract(
-		baseCuboid(widht, height, depth, holeDiameter),
+		baseCuboid(width, height, depth, holeDiameter),
 		translate(
 			[textOffsetX + 2, textOffsetY - textScale * 10, -1], 
 			scale(
@@ -82,7 +82,7 @@ const cuboidWithInnerText = ({widht, height, depth, holeDiameter, myText, textDe
 }
 
 export const keyring = (input: generateTypes) => {
-	return input.inner ? 
+	return input.outer ? 
 	cuboidWithOuterText(input):
 	cuboidWithInnerText(input);
 }

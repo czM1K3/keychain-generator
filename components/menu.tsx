@@ -1,5 +1,13 @@
 import React, { FC, useState } from "react";
 import { generateTypes } from "../lib/generateTypes";
+import {
+	Formik,
+	FormikHelpers,
+	FormikProps,
+	Form,
+	Field,
+	FieldProps,
+  } from 'formik';
 
 type MenuProps = {
 	useFilter: [
@@ -10,22 +18,72 @@ type MenuProps = {
 
 const Menu: FC<MenuProps> = ({useFilter}) => {
 	const [filter, setFilter] = useFilter;
-	
-	
-	const setInnerText = ({ target }: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
-		//@ts-ignore
-		const state: boolean = target.checked;
-		setFilter({...filter, inner: !state})
-	}
 
+	const initialValues: generateTypes = { ...filter };
+	
+	const updateData = (data: generateTypes) => {
+		setFilter(data);
+		// console.log(data);
+	}
+	
 	return (
 		<div className="menu">
-			<input type="checkbox" id="isInner" name="isInner" onClick={setInnerText}/>
-			<label htmlFor="isInner">Inner text</label>
+			{/* <input type="checkbox" id="isInner" name="isInner" onClick={setInnerText}/>
+			<label htmlFor="isInner">Inner text</label> */}
 
-			<div className="slidecontainer">
+			{/* <div className="slidecontainer">
 				<input type="range" min="1" max="100" value="50" className="slider" id="myRange" />
-			</div>
+			</div> */}
+
+			<Formik
+			initialValues={initialValues}
+			validateOnChange={true}
+			validate={updateData}
+			onSubmit={(values) => console.log(values)}>
+				<Form>
+					<div className="menu-item">
+						<label htmlFor="outer">	
+							<Field type="checkbox" name="outer" />
+							Outer text
+						</label><br/>
+					</div>
+
+					<div className="menu-item">
+						<label htmlFor="width">
+						Width
+							<Field type="number" min="30" max="200" name="width" />
+						</label><br/>
+					</div>
+
+					<div className="menu-item">
+						<label htmlFor="height">
+						Height
+							<Field type="number" min="10" max="50" name="height" />
+						</label><br/>
+					</div>
+
+					<div className="menu-item">
+						<label htmlFor="depth">
+						Depth
+							<Field type="number" min="0.1" max="10" step="0.1" name="depth" />
+						</label><br/>
+					</div>
+
+					<div className="menu-item">
+						<label htmlFor="myText">
+						Text
+							<Field type="text" name="myText" />
+						</label><br/>
+					</div>
+
+					<div className="menu-item">
+						<label htmlFor="textDepth">
+						Text Depth
+							<Field type="number" min="0.1" max="10" step="0.1" name="textDepth" />
+						</label><br/>
+					</div>
+				</Form>
+			</Formik>
 		</div>
 	);
 }
