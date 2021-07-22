@@ -86,28 +86,28 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 					<div className="menu-item">
 						<label htmlFor="textWidth">
 						Text Width
-							<Field type="number" min="0.1" max="10" step="0.1" name="textWidth" />
+							<Field type="number" min="1" max="10" step="1" name="textWidth" />
 						</label><br/>
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textScale">
 						Text Scale
-							<Field type="number" min="0.1" max="10" step="0.1" name="textScale" />
+							<Field type="number" min="0.1" max="10" step="0.05" name="textScale" />
 						</label><br/>
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textOffsetX">
 						Text Offset X
-							<Field type="number" min="0.1" max="10" step="0.1" name="textOffsetX" />
+							<Field type="number" min="-1" max="50" step="1" name="textOffsetX" />
 						</label><br/>
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textOffsetY">
 						Text Offset Y
-							<Field type="number" min="0.1" max="10" step="0.1" name="textOffsetY" />
+							<Field type="number" min="-10" max="50" step="1" name="textOffsetY" />
 						</label><br/>
 					</div>
 				</Form>
