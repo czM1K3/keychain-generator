@@ -1,13 +1,12 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { checkGenerateTypes, generateTypes } from "../lib/generateTypes";
 import {
 	Formik,
-	FormikHelpers,
-	FormikProps,
 	Form,
 	Field,
-	FieldProps,
   } from 'formik';
+import { serialize } from "@jscad/stl-serializer";
+import { keyring } from "../lib/keyring";
 
 type MenuProps = {
 	useFilter: [
@@ -24,6 +23,16 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 	const updateData = (data: generateTypes) => {
 		if (checkGenerateTypes(data)) setFilter(data);
 	}
+
+	const download = (data: generateTypes) => {
+		const rawData = serialize({ binary: true }, keyring(data));
+		const blob = new Blob(rawData);
+		const blobUrl = URL.createObjectURL(blob);
+		const tempLink = document.createElement("a");
+		tempLink.href = blobUrl;
+		tempLink.setAttribute("download", "keyring.stl");
+		tempLink.click();
+	}
 	
 	return (
 		<div className="menu">
@@ -31,7 +40,7 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 			initialValues={initialValues}
 			validateOnChange={true}
 			validate={updateData}
-			onSubmit={(values) => console.log(values)}>
+			onSubmit={download}>
 				<Form>
 					<div className="menu-item">
 						<label htmlFor="outer">	
@@ -109,6 +118,7 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 							<Field type="number" min="-10" max="50" step="1" name="textOffsetY" />
 						</label><br/>
 					</div>
+					<button type="submit">Download</button>
 				</Form>
 			</Formik>
 		</div>
