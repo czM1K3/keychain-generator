@@ -8,7 +8,7 @@ const { subtract, union } = booleans;
 const { vectorText } = text;
 const { extrudeLinear } = extrusions;
 
-const buildFlatText = (message, extrusionHeight, characterLineWidth) => {
+const buildFlatText = (message: string, extrusionHeight: number, characterLineWidth: number) => {
 	if (message === undefined || message.length === 0) return []
   
 	const lineRadius = characterLineWidth / 2
@@ -25,7 +25,7 @@ const buildFlatText = (message, extrusionHeight, characterLineWidth) => {
 	return translate([0, 0, 0], message3D)
 }
 
-const halfCylinder = (width, depth) => {
+const halfCylinder = (width: number, depth: number) => {
 	return subtract(
 		cylinder({
 			radius: width / 2,
@@ -38,7 +38,7 @@ const halfCylinder = (width, depth) => {
 	)
 }
 
-const baseCuboid = (width, height, depth, holeDiameter) => {
+const baseCuboid = (width: number, height: number, depth: number, holeDiameter: number) => {
 	return subtract(
 		union(
 			cuboid({

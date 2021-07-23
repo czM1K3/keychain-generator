@@ -5,14 +5,14 @@ import { keychain } from "../lib/keychain";
 import { useWindowSize } from "../lib/windowSize";
 import { transforms } from "@jscad/modeling";
 
-type myRendererProps = {
+type MyRendererProps = {
 	filter: generateTypes;
 }
 
-const myRenderer: FC<myRendererProps> = ({filter}) => {
+const MyRenderer: FC<MyRendererProps> = ({filter}) => {
 	const [a] = useState([transforms.translateX(-(filter.width / 2), keychain(filter))]);
 	const size = useWindowSize();
 	return <Renderer solids={a} height={size.height} width={size.width} />
 }
 
-export default myRenderer;
+export default MyRenderer;
