@@ -1,10 +1,6 @@
 import React, { FC } from "react";
 import { checkGenerateTypes, generateTypes } from "../lib/generateTypes";
-import {
-	Formik,
-	Form,
-	Field,
-  } from 'formik';
+import { Formik, Form, Field } from "formik";
 import { serialize } from "@jscad/stl-serializer";
 import { keychain } from "../lib/keychain";
 
@@ -12,17 +8,17 @@ type MenuProps = {
 	useFilter: [
 		generateTypes,
 		React.Dispatch<React.SetStateAction<generateTypes>>
-	]
-}
+	];
+};
 
-const Menu: FC<MenuProps> = ({useFilter}) => {
+const Menu: FC<MenuProps> = ({ useFilter }) => {
 	const [filter, setFilter] = useFilter;
 
 	const initialValues: generateTypes = { ...filter };
-	
+
 	const updateData = (data: generateTypes) => {
 		if (checkGenerateTypes(data)) setFilter(data);
-	}
+	};
 
 	const download = (data: generateTypes) => {
 		const rawData = serialize({ binary: true }, keychain(data));
@@ -32,97 +28,109 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 		tempLink.href = blobUrl;
 		tempLink.setAttribute("download", "keyring.stl");
 		tempLink.click();
-	}
-	
+	};
+
 	return (
 		<div className="menu">
 			<Formik
-			initialValues={initialValues}
-			validateOnChange={true}
-			validate={updateData}
-			onSubmit={download}>
+				initialValues={initialValues}
+				validateOnChange={true}
+				validate={updateData}
+				onSubmit={download}
+			>
 				<Form>
 					<div className="menu-item">
-						<label htmlFor="outer">	
+						<label htmlFor="outer">
 							<Field type="checkbox" name="outer" />
 							Outer text
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="width">
-						Width
+							Width
 							<Field type="number" min="30" max="200" name="width" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="height">
-						Height
+							Height
 							<Field type="number" min="10" max="50" name="height" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="depth">
-						Depth
+							Depth
 							<Field type="number" min="0.1" max="10" step="0.1" name="depth" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="holeDiameter">
-						Hole diameter
+							Hole diameter
 							<Field type="number" min="0.1" max="10" step="0.1" name="holeDiameter" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="myText">
-						Text
+							Text
 							<Field type="text" name="myText" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textDepth">
-						Text Depth
+							Text Depth
 							<Field type="number" min="0.1" max="10" step="0.1" name="textDepth" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textWidth">
-						Text Width
+							Text Width
 							<Field type="number" min="1" max="10" step="1" name="textWidth" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textScale">
-						Text Scale
+							Text Scale
 							<Field type="number" min="0.1" max="10" step="0.05" name="textScale" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textOffsetX">
-						Text Offset X
+							Text Offset X
 							<Field type="number" min="-10" max="50" step="1" name="textOffsetX" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="textOffsetY">
-						Text Offset Y
+							Text Offset Y
 							<Field type="number" min="-10" max="50" step="1" name="textOffsetY" />
-						</label><br/>
+						</label>
+						<br />
 					</div>
 					<button type="submit">Download STL</button>
 				</Form>
 			</Formik>
 		</div>
 	);
-}
+};
 
 export default Menu;

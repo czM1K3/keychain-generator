@@ -7,12 +7,12 @@ import { transforms } from "@jscad/modeling";
 
 type MyRendererProps = {
 	filter: generateTypes;
-}
+};
 
-const MyRenderer: FC<MyRendererProps> = ({filter}) => {
+const MyRenderer: FC<MyRendererProps> = ({ filter }) => {
 	const solids = [transforms.translateX(-(filter.width / 2), keychain(filter))];
 	const size = useWindowSize();
-	return <Renderer solids={solids} height={size.height} width={size.width} />
-}
+	return <Renderer solids={solids} height={size.height} width={size.width} />;
+};
 
 export default MyRenderer;

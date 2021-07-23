@@ -2,14 +2,14 @@ body {
 	margin: 0;
 }
 
-.menu{
+.menu {
 	position: fixed;
 	background-color: rgba($color: #bbbbbb, $alpha: 0.7);
 	padding: 10px;
 
 	.menu-item {
 		padding: 2px;
-		
+
 		input {
 			margin-left: 5px;
 		}

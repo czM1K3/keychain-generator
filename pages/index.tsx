@@ -7,26 +7,25 @@ import Head from "next/head";
 const Index: FC = () => {
 	const [filter, setFilter] = useState(generateTypesInitial());
 
-	useEffect(() => {
+	useEffect(() => {}, []);
 
-	}, []);
+	const MyRendrer = dynamic(() => import("../components/myRenderer"), {
+		ssr: false,
+	});
 
-  const MyRendrer = dynamic(
-    () => import("../components/myRenderer"),
-    { ssr: false }
-  )
-
-  return (
-    <>
-      <Head>
-        <title>Keychain generator</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-		  <Menu useFilter={[filter,setFilter]} />
-      <MyRendrer filter={filter} />
-      <a className="github" href="https://github.com/czM1K3/keychain-generator">Source Code</a>
-    </>
-  )
+	return (
+		<>
+			<Head>
+				<title>Keychain generator</title>
+				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
+			</Head>
+			<Menu useFilter={[filter, setFilter]} />
+			<MyRendrer filter={filter} />
+			<a className="github" href="https://github.com/czM1K3/keychain-generator">
+				Source Code
+			</a>
+		</>
+	);
 };
 
 export default Index;
