@@ -118,7 +118,7 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 							<Field type="number" min="-10" max="50" step="1" name="textOffsetY" />
 						</label><br/>
 					</div>
-					<button type="submit">Download</button>
+					<button type="submit">Download STL</button>
 				</Form>
 			</Formik>
 		</div>
