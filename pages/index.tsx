@@ -21,6 +21,7 @@ const Index: FC = () => {
 			</Head>
 			<Menu useFilter={[filter, setFilter]} />
 			<MyRendrer filter={filter} />
+			<p className="loading">Loading...</p>
 			<a className="github" href="https://github.com/czM1K3/keychain-generator">
 				Source Code
 			</a>
