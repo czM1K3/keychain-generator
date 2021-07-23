@@ -10,9 +10,9 @@ type MyRendererProps = {
 }
 
 const MyRenderer: FC<MyRendererProps> = ({filter}) => {
-	const [a] = useState([transforms.translateX(-(filter.width / 2), keychain(filter))]);
+	const solids = [transforms.translateX(-(filter.width / 2), keychain(filter))];
 	const size = useWindowSize();
-	return <Renderer solids={a} height={size.height} width={size.width} />
+	return <Renderer solids={solids} height={size.height} width={size.width} />
 }
 
 export default MyRenderer;
