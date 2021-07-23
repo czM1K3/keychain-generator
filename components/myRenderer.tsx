@@ -12,7 +12,23 @@ type MyRendererProps = {
 const MyRenderer: FC<MyRendererProps> = ({ filter }) => {
 	const solids = [transforms.translateX(-(filter.width / 2), keychain(filter))];
 	const size = useWindowSize();
-	return <Renderer solids={solids} height={size.height} width={size.width} />;
+	return (
+		<Renderer
+			solids={solids}
+			height={size.height}
+			width={size.width}
+			options={{
+				gridOptions: {
+					size: [60, 250],
+					color: [0.6, 0.6, 0.6, 2],
+					subColor: [0.85, 0.9, 0.95, 2],
+				},
+				axisOptions: {
+					show: false,
+				},
+			}}
+		/>
+	);
 };
 
 export default MyRenderer;
