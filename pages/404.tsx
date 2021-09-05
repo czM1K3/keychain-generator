@@ -1,7 +1,7 @@
 import React, { FC, useEffect } from "react";
 import { useRouter } from "next/router";
 
-const errorPage: FC = () => {
+const ErrorPage: FC = () => {
 	const router = useRouter();
 
 	useEffect(() => {
@@ -11,4 +11,4 @@ const errorPage: FC = () => {
 	return <div></div>;
 }
 
-export default errorPage;
+export default ErrorPage;
