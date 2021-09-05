@@ -25,12 +25,13 @@ const Menu: FC<MenuProps> = ({useFilter}) => {
 	}
 
 	const download = (data: generateTypes) => {
+		const fileName = `keyring-${data.myText.match(/[A-Za-z0-9]/g).join("")}.stl`
 		const rawData = serialize({ binary: true }, keychain(data));
 		const blob = new Blob(rawData);
 		const blobUrl = URL.createObjectURL(blob);
 		const tempLink = document.createElement("a");
 		tempLink.href = blobUrl;
-		tempLink.setAttribute("download", "keyring.stl");
+		tempLink.setAttribute("download", fileName);
 		tempLink.click();
 	}
 	
