@@ -1,16 +1,16 @@
 export type generateTypes = {
-	outer: boolean,
-	width: number,
-	height: number,
-	depth: number,
-	holeDiameter: number,
-	myText: string,
-	textDepth: number,
-	textWidth: number,
-	textScale: number,
-	textOffsetX: number,
-	textOffsetY: number
-}
+	outer: boolean;
+	width: number;
+	height: number;
+	depth: number;
+	holeDiameter: number;
+	myText: string;
+	textDepth: number;
+	textWidth: number;
+	textScale: number;
+	textOffsetX: number;
+	textOffsetY: number;
+};
 
 export const generateTypesInitial = (): generateTypes => {
 	return {
@@ -39,6 +39,6 @@ export const checkGenerateTypes = (input: generateTypes): boolean => {
 		input.textWidth > 1,
 		input.textScale > 0,
 		input.textOffsetX >= -10,
-		input.textOffsetY >= -10
+		input.textOffsetY >= -10,
 	].includes(false);
-}
+};

@@ -8,37 +8,42 @@ const { subtract, union } = booleans;
 const { vectorText } = text;
 const { extrudeLinear } = extrusions;
 
-const buildFlatText = (message, extrusionHeight, characterLineWidth) => {
-	if (message === undefined || message.length === 0) return []
-  
-	const lineRadius = characterLineWidth / 2
-	const lineCorner = circle({ radius: lineRadius })
-  
-	const lineSegmentPointArrays = vectorText({ xOffset: 0, yOffset: 0 }, message) // line segments for each character
-	const lineSegments = []
-	lineSegmentPointArrays.map((segmentPoints) => { // process the line segment
-	  const corners = segmentPoints.map((point) => translate(point, lineCorner))
-	  lineSegments.push(hullChain(corners))
-	})
-	const message2D = union(lineSegments)
-	const message3D = extrudeLinear({ height: extrusionHeight }, message2D)
-	return translate([0, 0, 0], message3D)
-}
+const buildFlatText = (
+	message: string,
+	extrusionHeight: number,
+	characterLineWidth: number
+) => {
+	if (message === undefined || message.length === 0) return [];
 
-const halfCylinder = (width, depth) => {
+	const lineRadius = characterLineWidth / 2;
+	const lineCorner = circle({ radius: lineRadius });
+
+	const lineSegmentPointArrays = vectorText({ xOffset: 0, yOffset: 0 }, message); // line segments for each character
+	const lineSegments = [];
+	lineSegmentPointArrays.map((segmentPoints) => {
+		// process the line segment
+		const corners = segmentPoints.map((point) => translate(point, lineCorner));
+		lineSegments.push(hullChain(corners));
+	});
+	const message2D = union(lineSegments);
+	const message3D = extrudeLinear({ height: extrusionHeight }, message2D);
+	return translate([0, 0, 0], message3D);
+};
+
+const halfCylinder = (width: number, depth: number) => {
 	return subtract(
 		cylinder({
 			radius: width / 2,
-			height: depth
+			height: depth,
 		}),
 		cuboid({
-			size: [width,width,depth],
-			center:[width/2,0,0],
+			size: [width, width, depth],
+			center: [width / 2, 0, 0],
 		})
-	)
-}
+	);
+};
 
-const invertedHalfCylinder = (height, depth) => {
+const invertedHalfCylinder = (height: number, depth: number) => {
 	return subtract(
 		cuboid({
 			size: [height / 2, height, depth],
@@ -48,7 +53,7 @@ const invertedHalfCylinder = (height, depth) => {
 	)
 }
 
-const base = (width, height, depth, holeDiameter) => {
+const base = (width: number, height: number, depth: number, holeDiameter: number) => {
 	return translate(
 		[0, 0, depth / 2],
 		subtract(
@@ -69,7 +74,18 @@ const base = (width, height, depth, holeDiameter) => {
 	));
 }
 
-const cuboidWithOuterText = ({width, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
+const cuboidWithOuterText = ({
+	width,
+	height,
+	depth,
+	holeDiameter,
+	myText,
+	textDepth,
+	textWidth,
+	textScale,
+	textOffsetX,
+	textOffsetY,
+}: generateTypes) => {
 	return union(
 		base(width, height, depth, holeDiameter),
 		translate(
@@ -79,10 +95,21 @@ const cuboidWithOuterText = ({width, height, depth, holeDiameter, myText, textDe
 				buildFlatText(myText, textDepth, textWidth)
 			)
 		)
-	)
-}
+	);
+};
 
-const cuboidWithInnerText = ({width, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
+const cuboidWithInnerText = ({
+	width,
+	height,
+	depth,
+	holeDiameter,
+	myText,
+	textDepth,
+	textWidth,
+	textScale,
+	textOffsetX,
+	textOffsetY,
+}: generateTypes) => {
 	//TODO Don'n make hole with text
 	return subtract(
 		base(width, height, depth, holeDiameter),
@@ -93,11 +120,9 @@ const cuboidWithInnerText = ({width, height, depth, holeDiameter, myText, textDe
 				buildFlatText(myText, textDepth, textWidth)
 			)
 		)
-	)
-}
+	);
+};
 
 export const keychain = (input: generateTypes) => {
-	return input.outer ? 
-	cuboidWithOuterText(input):
-	cuboidWithInnerText(input);
-}
+	return input.outer ? cuboidWithOuterText(input) : cuboidWithInnerText(input);
+};
