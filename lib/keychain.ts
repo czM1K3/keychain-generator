@@ -38,27 +38,42 @@ const halfCylinder = (width, depth) => {
 	)
 }
 
-const baseCuboid = (width, height, depth, holeDiameter) => {
+const invertedHalfCylinder = (height, depth) => {
 	return subtract(
-		union(
+		cuboid({
+			size: [height / 2, height, depth],
+			center: [height / -4,0,0]
+		}),
+		halfCylinder(height, depth)
+	)
+}
+
+const base = (width, height, depth, holeDiameter) => {
+	return translate(
+		[0, 0, depth / 2],
+		subtract(
+		subtract(
 			cuboid({
 				size: [width, height, depth],
-				center: [width /2,0,0]
 			}),
-			halfCylinder(height, depth)
+			translate(
+				[(width/-2)+(height/2), 0, 0],
+				invertedHalfCylinder(height, depth)
+			)
 		),
 		cylinder({
 			height: depth,
-			radius: holeDiameter
+			radius: holeDiameter,
+			center: [(width / -2) + (height / 2), 0, 0]
 		})
-	);
+	));
 }
 
 const cuboidWithOuterText = ({width, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
 	return union(
-		baseCuboid(width, height, depth, holeDiameter),
+		base(width, height, depth, holeDiameter),
 		translate(
-			[textOffsetX + 2, textOffsetY - textScale * 10, depth - 1], 
+			[textOffsetX - (width / 2) + (height / 2) + holeDiameter, textOffsetY - textScale * 10, depth], 
 			scale(
 				[textScale, textScale, 1],
 				buildFlatText(myText, textDepth, textWidth)
@@ -70,9 +85,9 @@ const cuboidWithOuterText = ({width, height, depth, holeDiameter, myText, textDe
 const cuboidWithInnerText = ({width, height, depth, holeDiameter, myText, textDepth, textWidth, textScale, textOffsetX, textOffsetY}: generateTypes) => {
 	//TODO Don'n make hole with text
 	return subtract(
-		baseCuboid(width, height, depth, holeDiameter),
+		base(width, height, depth, holeDiameter),
 		translate(
-			[textOffsetX + 2, textOffsetY - textScale * 10, -1], 
+			[textOffsetX - (width / 2) + (height / 2) + holeDiameter, textOffsetY - textScale * 10, -1], 
 			scale(
 				[textScale, textScale, 100],
 				buildFlatText(myText, textDepth, textWidth)

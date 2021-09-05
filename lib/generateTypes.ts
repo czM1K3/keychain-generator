@@ -15,7 +15,7 @@ export type generateTypes = {
 export const generateTypesInitial = (): generateTypes => {
 	return {
 		outer: true,
-		width: 60,
+		width: 73,
 		height: 20,
 		depth: 2,
 		holeDiameter: 4,
@@ -23,7 +23,7 @@ export const generateTypesInitial = (): generateTypes => {
 		textDepth: 2,
 		textWidth: 4,
 		textScale: 0.45,
-		textOffsetX: 3,
+		textOffsetX: 2,
 		textOffsetY: 0
 	}
 }
