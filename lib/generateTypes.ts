@@ -15,11 +15,11 @@ export type generateTypes = {
 export const generateTypesInitial = (): generateTypes => {
 	return {
 		outer: true,
-		width: 73,
+		width: 80,
 		height: 20,
 		depth: 2,
 		holeDiameter: 4,
-		myText: "Gratluji!",
+		myText: "Gratuluji!",
 		textDepth: 2,
 		textWidth: 4,
 		textScale: 0.45,
