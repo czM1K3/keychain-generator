@@ -6,7 +6,7 @@ const ErrorPage: FC = () => {
 
 	useEffect(() => {
 		router.push("/");
-	}, []);
+	}, [router]);
 
 	return <div></div>;
 }
