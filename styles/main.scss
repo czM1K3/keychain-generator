@@ -1,5 +1,6 @@
 body {
 	margin: 0;
+	overflow: hidden;
 }
 
 .menu {
@@ -14,16 +15,6 @@ body {
 			margin-left: 5px;
 		}
 	}
-}
-
-.github {
-	position: fixed;
-	bottom: 5px;
-	left: 50%;
-	transform: translateX(-50%);
-	text-decoration: none;
-	color: black;
-	font-family: sans-serif;
 }
 
 .loading {

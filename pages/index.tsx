@@ -3,6 +3,7 @@ import dynamic from "next/dynamic";
 import Menu from "../components/menu";
 import { generateTypesInitial } from "../lib/generateTypes";
 import Head from "next/head";
+import { GitHub } from "../components/github";
 
 const Index: FC = () => {
 	const [filter, setFilter] = useState(generateTypesInitial());
@@ -14,7 +15,7 @@ const Index: FC = () => {
 	});
 
 	return (
-		<>
+		<GitHub>
 			<Head>
 				<title>Keychain generator</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -22,10 +23,7 @@ const Index: FC = () => {
 			<Menu useFilter={[filter, setFilter]} />
 			<MyRendrer filter={filter} />
 			<p className="loading">Loading...</p>
-			<a className="github" href="https://github.com/czM1K3/keychain-generator">
-				Source Code
-			</a>
-		</>
+		</GitHub>
 	);
 };
 
