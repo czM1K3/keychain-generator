@@ -20,44 +20,24 @@ $color-red-text: #ffffff;
 
 	background-color: $color-red;
 	color: $color-red-text;
-}
 
-.ghRibbon:after {
-	content: "";
-	position: relative;
-	display: block;
-	top: 8px;
-	left: 0;
-	width: 600px;
-	border: 1px dashed rgba(255, 255, 255, 0.4);
-}
+	&:after {
+		content: "";
+		position: relative;
+		display: block;
+		top: 8px;
+		left: 0;
+		width: 600px;
+		border: 1px dashed rgba(255, 255, 255, 0.4);
+	}
 
-.ghRibbon:before {
-	content: "";
-	position: relative;
-	display: block;
-	bottom: 8px;
-	left: 0;
-	width: 600px;
-	border: 1px dashed rgba(255, 255, 255, 0.4);
-}
-
-.ghRibbon.white:after {
-	content: "";
-	position: relative;
-	display: block;
-	top: 8px;
-	left: 0;
-	width: 600px;
-	border: 1px dashed rgba(0, 0, 0, 0.4);
-}
-
-.ghRibbon.white:before {
-	content: "";
-	position: relative;
-	display: block;
-	bottom: 8px;
-	left: 0;
-	width: 600px;
-	border: 1px dashed rgba(0, 0, 0, 0.4);
+	&:before {
+		content: "";
+		position: relative;
+		display: block;
+		bottom: 8px;
+		left: 0;
+		width: 600px;
+		border: 1px dashed rgba(255, 255, 255, 0.4);
+	}
 }
