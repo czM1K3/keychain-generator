@@ -25,8 +25,8 @@ const buildFlatText = (
 		const corners = segmentPoints.map((point) => translate(point, lineCorner));
 		lineSegments.push(hullChain(corners));
 	});
-	const message2D = union(lineSegments);
-	const message3D = extrudeLinear({ height: extrusionHeight }, message2D);
+	const message3D = extrudeLinear({ height: extrusionHeight }, lineSegments);
+
 	return translate([0, 0, 0], message3D);
 };
 
