@@ -42,7 +42,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 				<Form>
 					<div className="menu-item">
 						<label htmlFor="outer">
-							<Field type="checkbox" name="outer" />
+							<Field type="checkbox" name="outer" aria-label="Outer Text"/>
 							Outer text
 						</label>
 						<br />
@@ -51,7 +51,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="width">
 							Width
-							<Field type="number" min="30" max="200" name="width" />
+							<Field type="number" min="30" max="200" name="width" aria-label="Width"/>
 						</label>
 						<br />
 					</div>
@@ -59,7 +59,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="height">
 							Height
-							<Field type="number" min="10" max="50" name="height" />
+							<Field type="number" min="10" max="50" name="height" aria-label="Height"/>
 						</label>
 						<br />
 					</div>
@@ -67,23 +67,23 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="depth">
 							Depth
-							<Field type="number" min="0.1" max="10" step="0.1" name="depth" />
+							<Field type="number" min="0.1" max="10" step="0.1" name="depth" aria-label="Depth"/>
 						</label>
 						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="holeDiameter">
-							Hole diameter
-							<Field type="number" min="0.1" max="10" step="0.1" name="holeDiameter" />
+							Hole Diameter
+							<Field type="number" min="0.1" max="10" step="0.1" name="holeDiameter" aria-label="Hole Diameter"/>
 						</label>
 						<br />
 					</div>
 
 					<div className="menu-item">
 						<label htmlFor="myText">
-							Text
-							<Field type="text" name="myText" />
+							My Text
+							<Field type="text" name="myText" aria-label="My Text"/>
 						</label>
 						<br />
 					</div>
@@ -91,7 +91,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="textDepth">
 							Text Depth
-							<Field type="number" min="0.1" max="10" step="0.1" name="textDepth" />
+							<Field type="number" min="0.1" max="10" step="0.1" name="textDepth" aria-label="Text Depth"/>
 						</label>
 						<br />
 					</div>
@@ -99,7 +99,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="textWidth">
 							Text Width
-							<Field type="number" min="1" max="10" step="1" name="textWidth" />
+							<Field type="number" min="1" max="10" step="1" name="textWidth" aria-label="Text Width"/>
 						</label>
 						<br />
 					</div>
@@ -107,7 +107,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="textScale">
 							Text Scale
-							<Field type="number" min="0.1" max="10" step="0.05" name="textScale" />
+							<Field type="number" min="0.1" max="10" step="0.05" name="textScale" aria-label="Text Scale"/>
 						</label>
 						<br />
 					</div>
@@ -115,7 +115,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="textOffsetX">
 							Text Offset X
-							<Field type="number" min="-10" max="50" step="1" name="textOffsetX" />
+							<Field type="number" min="-10" max="50" step="1" name="textOffsetX" aria-label="Text Offset X"/>
 						</label>
 						<br />
 					</div>
@@ -123,7 +123,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 					<div className="menu-item">
 						<label htmlFor="textOffsetY">
 							Text Offset Y
-							<Field type="number" min="-10" max="50" step="1" name="textOffsetY" />
+							<Field type="number" min="-10" max="50" step="1" name="textOffsetY" aria-label="Text Offset Y"/>
 						</label>
 						<br />
 					</div>
