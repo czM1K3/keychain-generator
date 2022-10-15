@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, Dispatch, SetStateAction } from "react";
 import { checkGenerateTypes, generateTypes } from "../lib/generateTypes";
 import { Formik, Form, Field } from "formik";
 import { serialize } from "@jscad/stl-serializer";
@@ -7,7 +7,7 @@ import { keychain } from "../lib/keychain";
 type MenuProps = {
 	useFilter: [
 		generateTypes,
-		React.Dispatch<React.SetStateAction<generateTypes>>
+		Dispatch<SetStateAction<generateTypes>>
 	];
 };
 
@@ -50,7 +50,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="width">
-							Width
+							Width (mm)
 							<Field type="number" min="30" max="200" name="width" aria-label="Width"/>
 						</label>
 						<br />
@@ -58,7 +58,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="height">
-							Height
+							Height (mm)
 							<Field type="number" min="10" max="50" name="height" aria-label="Height"/>
 						</label>
 						<br />
@@ -66,7 +66,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="depth">
-							Depth
+							Depth (mm)
 							<Field type="number" min="0.1" max="10" step="0.1" name="depth" aria-label="Depth"/>
 						</label>
 						<br />
@@ -74,7 +74,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="holeDiameter">
-							Hole Diameter
+							Hole Diameter (mm)
 							<Field type="number" min="0.1" max="10" step="0.1" name="holeDiameter" aria-label="Hole Diameter"/>
 						</label>
 						<br />
@@ -90,7 +90,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="textDepth">
-							Text Depth
+							Text Depth (mm)
 							<Field type="number" min="0.1" max="10" step="0.1" name="textDepth" aria-label="Text Depth"/>
 						</label>
 						<br />
@@ -98,7 +98,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="textWidth">
-							Text Width
+							Text Width (mm)
 							<Field type="number" min="1" max="10" step="1" name="textWidth" aria-label="Text Width"/>
 						</label>
 						<br />
@@ -106,7 +106,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="textScale">
-							Text Scale
+							Text Scale (%)
 							<Field type="number" min="0.1" max="10" step="0.05" name="textScale" aria-label="Text Scale"/>
 						</label>
 						<br />
@@ -114,7 +114,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="textOffsetX">
-							Text Offset X
+							Text Offset X (mm)
 							<Field type="number" min="-10" max="50" step="1" name="textOffsetX" aria-label="Text Offset X"/>
 						</label>
 						<br />
@@ -122,7 +122,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 
 					<div className="menu-item">
 						<label htmlFor="textOffsetY">
-							Text Offset Y
+							Text Offset Y (mm)
 							<Field type="number" min="-10" max="50" step="1" name="textOffsetY" aria-label="Text Offset Y"/>
 						</label>
 						<br />
