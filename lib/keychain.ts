@@ -1,5 +1,6 @@
 import jscad from "@jscad/modeling";
 import { generateTypes } from "./generateTypes";
+
 const { primitives, booleans, text, hulls, transforms, extrusions } = jscad;
 const { hullChain } = hulls;
 const { translate, scale } = transforms;
@@ -47,32 +48,38 @@ const invertedHalfCylinder = (height: number, depth: number) => {
 	return subtract(
 		cuboid({
 			size: [height / 2, height, depth],
-			center: [height / -4,0,0]
+			center: [height / -4, 0, 0],
 		}),
 		halfCylinder(height, depth)
-	)
-}
+	);
+};
 
-const base = (width: number, height: number, depth: number, holeDiameter: number) => {
+const base = (
+	width: number,
+	height: number,
+	depth: number,
+	holeDiameter: number
+) => {
 	return translate(
 		[0, 0, depth / 2],
 		subtract(
-		subtract(
-			cuboid({
-				size: [width, height, depth],
-			}),
-			translate(
-				[(width/-2)+(height/2), 0, 0],
-				invertedHalfCylinder(height, depth)
-			)
-		),
-		cylinder({
-			height: depth,
-			radius: holeDiameter,
-			center: [(width / -2) + (height / 2), 0, 0]
-		})
-	));
-}
+			subtract(
+				cuboid({
+					size: [width, height, depth],
+				}),
+				translate(
+					[width / -2 + height / 2, 0, 0],
+					invertedHalfCylinder(height, depth)
+				)
+			),
+			cylinder({
+				height: depth,
+				radius: holeDiameter,
+				center: [width / -2 + height / 2, 0, 0],
+			})
+		)
+	);
+};
 
 const cuboidWithOuterText = ({
 	width,
@@ -89,11 +96,12 @@ const cuboidWithOuterText = ({
 	return union(
 		base(width, height, depth, holeDiameter),
 		translate(
-			[textOffsetX - (width / 2) + (height / 2) + holeDiameter, textOffsetY - textScale * 10, depth], 
-			scale(
-				[textScale, textScale, 1],
-				buildFlatText(myText, textDepth, textWidth)
-			)
+			[
+				textOffsetX - width / 2 + height / 2 + holeDiameter,
+				textOffsetY - textScale * 10,
+				depth,
+			],
+			scale([textScale, textScale, 1], buildFlatText(myText, textDepth, textWidth))
 		)
 	);
 };
@@ -114,7 +122,11 @@ const cuboidWithInnerText = ({
 	return subtract(
 		base(width, height, depth, holeDiameter),
 		translate(
-			[textOffsetX - (width / 2) + (height / 2) + holeDiameter, textOffsetY - textScale * 10, -1], 
+			[
+				textOffsetX - width / 2 + height / 2 + holeDiameter,
+				textOffsetY - textScale * 10,
+				-1,
+			],
 			scale(
 				[textScale, textScale, 100],
 				buildFlatText(myText, textDepth, textWidth)

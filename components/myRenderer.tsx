@@ -1,9 +1,8 @@
 import { Renderer } from "jscad-react";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { generateTypes } from "../lib/generateTypes";
 import { keychain } from "../lib/keychain";
 import { useWindowSize } from "../lib/windowSize";
-import { transforms } from "@jscad/modeling";
 
 type MyRendererProps = {
 	filter: generateTypes;
@@ -25,6 +24,9 @@ const MyRenderer: FC<MyRendererProps> = ({ filter }) => {
 				},
 				axisOptions: {
 					show: false,
+				},
+				viewerOptions: {
+					initialPosition: [0, 10, 10],
 				},
 			}}
 		/>

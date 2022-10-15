@@ -24,9 +24,9 @@ export const generateTypesInitial = (): generateTypes => {
 		textWidth: 4,
 		textScale: 0.45,
 		textOffsetX: 2,
-		textOffsetY: 0
-	}
-}
+		textOffsetY: 0,
+	};
+};
 
 export const checkGenerateTypes = (input: generateTypes): boolean => {
 	return ![

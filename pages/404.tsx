@@ -9,6 +9,6 @@ const ErrorPage: FC = () => {
 	}, [router]);
 
 	return <div></div>;
-}
+};
 
 export default ErrorPage;
