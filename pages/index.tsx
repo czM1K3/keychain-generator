@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useState } from "react";
 import dynamic from "next/dynamic";
 import Menu from "../components/menu";
 import { generateTypesInitial } from "../lib/generateTypes";
@@ -7,8 +7,6 @@ import { GitHub } from "../components/github";
 
 const Index: FC = () => {
 	const [filter, setFilter] = useState(generateTypesInitial());
-
-	useEffect(() => {}, []);
 
 	const MyRendrer = dynamic(() => import("../components/myRenderer"), {
 		ssr: false,
