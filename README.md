@@ -26,3 +26,7 @@ yarn dev
 - After resizing window, the preview may be white. - Just try to rotate with left mouse button.
 - Camera is resetting on every change.
 - Just letter "G" glitches the model.
+
+
+## License
+This app is built under an [MIT License](https://github.com/czM1K3/keychain-generator/blob/master/LICENSE).
