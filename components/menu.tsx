@@ -36,6 +36,7 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 				validate={updateData}
 				onSubmit={download}
 			>
+				<h1>Keychain generator</h1>
 				<Form>
 					<div className="menu-item">
 						<label htmlFor="outer">
