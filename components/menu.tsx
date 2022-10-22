@@ -40,7 +40,6 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 				<Form>
 					<div className="menu-item">
 						<h1>Keychain generator</h1>
-						<br />
 					</div>
 					
 					<div className="menu-item">
