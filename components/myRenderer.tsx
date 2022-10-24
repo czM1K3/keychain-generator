@@ -25,9 +25,6 @@ const MyRenderer: FC<MyRendererProps> = ({ filter }) => {
 				axisOptions: {
 					show: false,
 				},
-				viewerOptions: {
-					initialPosition: [0, 10, 10],
-				},
 			}}
 		/>
 	);
