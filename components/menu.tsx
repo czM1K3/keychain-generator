@@ -36,7 +36,12 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 				validate={updateData}
 				onSubmit={download}
 			>
+				
 				<Form>
+					<div className="menu-item">
+						<h1>Keychain generator</h1>
+					</div>
+					
 					<div className="menu-item">
 						<label htmlFor="outer">
 							<Field type="checkbox" name="outer" aria-label="Outer Text" />
