@@ -1,7 +1,11 @@
-import React, { FC } from "react";
+import React, { FC, ReactNode } from "react";
 import styles from "../styles/GitHub.module.scss";
 
-export const GitHub: FC = ({ children }) => {
+type GitHubProps = {
+	children: ReactNode;
+};
+
+export const GitHub: FC<GitHubProps> = ({ children }) => {
 	return (
 		<>
 			<a
