@@ -64,8 +64,10 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.width && formik.errors.width}
 								size="small"
 								type="number"
-								min="30"
-								max="200"
+								inputProps={{
+									min: 30,
+									max: 200,
+								}}
 								aria-label="Width"
 							/>
 							<TextField
@@ -80,8 +82,10 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.height && formik.errors.height}
 								size="small"
 								type="number"
-								min="10"
-								max="50"
+								inputProps={{
+									min: 10,
+									max: 50,
+								}}
 								aria-label="Height"
 							/>
 						</Stack>
@@ -98,9 +102,11 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.depth && formik.errors.depth}
 								size="small"
 								type="number"
-								min=".2"
-								max="10"
-								step="0.1"
+								inputProps={{
+									min: 0.2,
+									max: 10,
+									step: 0.1,
+								}}
 								aria-label="Depth"
 							/>
 							<TextField
@@ -117,9 +123,11 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.holeDiameter && formik.errors.holeDiameter}
 								size="small"
 								type="number"
-								min=".1"
-								max="10"
-								step="0.1"
+								inputProps={{
+									min: 0.1,
+									max: 10,
+									step: 0.1,
+								}}
 								aria-label="Hole Diameter"
 							/>
 						</Stack>
@@ -150,9 +158,11 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.textDepth && formik.errors.textDepth}
 								size="small"
 								type="number"
-								min="0.1"
-								max="10"
-								step="0.1"
+								inputProps={{
+									min: 0.1,
+									max: 10,
+									step: 0.1,
+								}}
 								aria-label="Text Depth"
 							/>
 							<TextField
@@ -167,9 +177,11 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.textWidth && formik.errors.textWidth}
 								size="small"
 								type="number"
-								min="1"
-								max="10"
-								step="1"
+								inputProps={{
+									min: 1,
+									max: 10,
+									step: 1,
+								}}
 								aria-label="Text Width"
 							/>
 						</Stack>
@@ -185,9 +197,11 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 							helperText={formik.touched.textScale && formik.errors.textScale}
 							size="small"
 							type="number"
-							min="0.1"
-							max="10"
-							step="0.05"
+							inputProps={{
+								min: 0.1,
+								max: 10,
+								step: 0.05,
+							}}
 							aria-label="Text Scale"
 						/>
 						<Stack direction="row" spacing={2}>
@@ -203,9 +217,11 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.textOffsetX && formik.errors.textOffsetX}
 								size="small"
 								type="number"
-								min="-10"
-								max="50"
-								step="1"
+								inputProps={{
+									min: -10,
+									max: 50,
+									step: 1,
+								}}
 								aria-label="Text Offset X"
 							/>
 							<TextField
@@ -220,9 +236,11 @@ const Menu: FC<MenuProps> = ({ useFilter }) => {
 								helperText={formik.touched.textOffsetY && formik.errors.textOffsetY}
 								size="small"
 								type="number"
-								min="-10"
-								max="50"
-								step="1"
+								inputProps={{
+									min: -10,
+									max: 50,
+									step: 1,
+								}}
 								aria-label="Text Offset Y"
 							/>
 						</Stack>
