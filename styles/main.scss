@@ -1,20 +1,7 @@
 body {
 	margin: 0;
 	overflow: hidden;
-}
-
-.menu {
-	position: fixed;
-	background-color: rgba($color: #bbbbbb, $alpha: 0.7);
-	padding: 10px;
-
-	.menu-item {
-		padding: 2px;
-
-		input {
-			margin-left: 5px;
-		}
-	}
+	font-family: Roboto, Arial, sans-serif;
 }
 
 .loading {

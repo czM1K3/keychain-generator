@@ -15,7 +15,7 @@ const Index: FC = () => {
 	return (
 		<GitHub>
 			<Head>
-				<title>Keychain generator</title>
+				<title>Keychain Generator</title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
 			</Head>
 			<Menu useFilter={[filter, setFilter]} />
